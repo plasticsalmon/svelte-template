@@ -1,8 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
-// const less = require("svelte-preprocess-less").less;
-// const ts = require("svelte-preprocess")({});
-// const less = require("svelte-preprocess").less;
 
 const mode = process.env.NODE_ENV || "development";
 const prod = mode === "production";
