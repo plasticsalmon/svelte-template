@@ -5,6 +5,16 @@ const mode = process.env.NODE_ENV || "development";
 const prod = mode === "production";
 
 module.exports = {
+  devServer: {
+    publicPath: "/assets/",
+    contentBase: "public",
+    hot: true,
+  },
+  output: {
+    path: path.resolve(__dirname, "public/assets"),
+    filename: "[name].js",
+    chunkFilename: "[name].[id].js",
+  },
   entry: {
     bundle: ["./src/main.ts"],
   },
@@ -15,15 +25,10 @@ module.exports = {
     extensions: [".mjs", ".js", ".ts", ".svelte"],
     mainFields: ["svelte", "browser", "module", "main"],
   },
-  output: {
-    path: __dirname + "/public",
-    filename: "[name].js",
-    chunkFilename: "[name].[id].js",
-  },
   module: {
     rules: [
       {
-        test: /\.svelte$/,
+        test: /\.(html|svelte)$/,
         exclude: /node_modules/,
         use: {
           loader: "svelte-loader",
@@ -35,15 +40,8 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: [
-          /**
-           * MiniCssExtractPlugin doesn't support HMR.
-           * For developing, use 'style-loader' instead.
-           * */
-          prod ? MiniCssExtractPlugin.loader : "style-loader",
-          "css-loader",
-        ],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },

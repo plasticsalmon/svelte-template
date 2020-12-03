@@ -1,6 +1,7 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
+  "private": true,
   "devDependencies": {
     "@tsconfig/svelte": "^1.0.10",
     "cross-env": "^5.2.0",
@@ -8,7 +9,7 @@
     "less": "^3.12.2",
     "mini-css-extract-plugin": "^0.6.0",
     "serve": "^11.0.0",
-    "style-loader": "^0.23.1",
+    "style-loader": "^2.0.0",
     "svelte": "^3.0.0",
     "svelte-check": "^1.1.17",
     "svelte-loader": "2.13.3",
@@ -19,9 +20,9 @@
     "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
-    "validate": "svelte-check",
+    "check": "svelte-check",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "webpack-dev-server --content-base public"
+    "dev": "webpack-dev-server"
   },
   "dependencies": {}
 }

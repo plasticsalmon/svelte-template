@@ -3,7 +3,7 @@
 </script>
 
 <style lang="less">
-  @a: #ff00ff;
+  @a: #008cff;
   h1 {
     color: @a;
   }
