@@ -30,7 +30,7 @@
   },
   "scripts": {
     "check": "svelte-check",
-    "lint": "eslint src/ --ext .js,ts",
+    "lint": "eslint src/ --ext .js,.ts",
     "lint:fix": "yarn lint --fix",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack-dev-server"
@@ -42,6 +42,6 @@
     }
   },
   "lint-staged": {
-    "src/*.{js,ts}": "yarn lint"
+    "*": "yarn lint"
   }
 }
