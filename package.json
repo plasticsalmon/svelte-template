@@ -10,8 +10,6 @@
     "css-loader": "^2.1.1",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
-    "eslint-plugin-prettier": "^3.3.0",
-    "eslint-plugin-svelte3": "^3.0.0",
     "husky": ">=4",
     "less": "^3.12.2",
     "lint-staged": ">=10",
@@ -30,7 +28,9 @@
   },
   "scripts": {
     "check": "svelte-check",
-    "lint": "eslint src/ --ext .js,.ts",
+    "prettier:check": "prettier --check",
+    "prettier:write": "prettier --write",
+    "lint": "eslint",
     "lint:fix": "yarn lint --fix",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack-dev-server"
@@ -42,6 +42,9 @@
     }
   },
   "lint-staged": {
-    "*": "yarn lint"
+    "*": [
+      "yarn lint",
+      "yarn prettier:check"
+    ]
   }
 }

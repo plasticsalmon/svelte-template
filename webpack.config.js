@@ -46,16 +46,9 @@ module.exports = {
   },
   mode,
   plugins: [
-    'svelte3',
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-  ],
-  overrides: [
-    {
-      files: ['src/**/*.svelte'],
-      processor: 'svelte3/svelte3',
-    },
   ],
   devtool: prod ? false : 'source-map',
 };
